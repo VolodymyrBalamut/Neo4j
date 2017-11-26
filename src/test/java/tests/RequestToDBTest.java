@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class RequestToDBTest {
     public RequestToDB requestToDB;
     public RequestToDBTest() throws Exception{
-        try ( CreateDB socialNetwork = new CreateDB( "bolt://localhost:7687", "neo4j", "password" ) )
+        try ( CreateDB socialNetwork = new CreateDB( "bolt://localhost:7687", "neo4j", "neo4j" ) )
         {
             socialNetwork.deleteAllNodes();
             //create users

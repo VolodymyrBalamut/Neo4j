@@ -11,7 +11,7 @@ public class Main {
 
     public static void main( String... args ) throws Exception
     {
-        try ( CreateDB socialNetwork = new CreateDB( "bolt://localhost:7687", "neo4j", "password" ) )
+        try ( CreateDB socialNetwork = new CreateDB( "bolt://localhost:7687", "neo4j", "neo4j" ) )
         {
             socialNetwork.deleteAllNodes();
             //create users
