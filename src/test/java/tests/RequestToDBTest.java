@@ -119,7 +119,7 @@ public class RequestToDBTest {
         String expected = "[[\"Music\", 5], [\"IT\", 4], [\"Football\", 2]]";
         assertEquals(requestToDB.getCountOfSubscriber(), expected);
     }
-    @Test
+    /*@Test
     public void getCountOfUsersGroups() throws Exception {
         String expected = "[[\"John\", \"Smith\", 2], " +
                 "[\"Yaroslava\", \"Nazarenko\", 2], " +
@@ -130,7 +130,7 @@ public class RequestToDBTest {
                 "[\"Steave\", \"Jouce\", 1], " +
                 "[\"Julia\", \"Roberts\", 1]]";
         assertEquals(requestToDB.getCountOfUsersGroups(), expected);
-    }
+    }*/
     @Test
     public void getCountOfGroupsFriendsOfFriends() throws Exception {
         String expected = "[[1]]";
