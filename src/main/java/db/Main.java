@@ -1,4 +1,4 @@
-package java;
+package db;
 
 import db.CreateDB;
 import db.RequestToDB;

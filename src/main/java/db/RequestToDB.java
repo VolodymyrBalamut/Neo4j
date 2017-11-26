@@ -113,7 +113,7 @@ public class RequestToDB implements AutoCloseable{
     }
     public String getCountOfPosts()
     {
-        return request("match (n:users) return n.firstName, n.lastName, size(n.posts) order by size(n.posts) desc");
+        return request("match (n:users) return n.firstName, n.lastName, size(n.posts) order by size(n.posts) desc,n.lastName ");
     }
     public String getPostsFriendsOfFriends(String name)
     {
@@ -121,6 +121,6 @@ public class RequestToDB implements AutoCloseable{
     }
     public String getAvgOfUsersPosts()
     {
-        return request("match (p:users) with (reduce(total = 0, row in p.posts | total + length(row)))/size(p.posts) as num, p.lastName as name return name, num order by num desc");
+        return request("match (p:users) with (reduce(total = 0, row in p.posts | total + length(row)))/size(p.posts) as num, p.lastName as name return name, num order by num desc,name");
     }
 }
