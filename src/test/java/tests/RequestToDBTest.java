@@ -121,11 +121,11 @@ public class RequestToDBTest {
     }
     @Test
     public void getCountOfUsersGroups() throws Exception {
-        String expected = "[[\"John\", \"Smith\", 2], " +
-                "[\"Yaroslava\", \"Nazarenko\", 2], " +
+        String expected = "[[\"Yaroslava\", \"Nazarenko\", 2], " +
+                "[\"John\", \"Smith\", 2], " +
                 "[\"Bogdan\", \"Yakovenko\", 2], " +
-                "[\"Yaroslav\", \"Bulakh\", 1], " +
                 "[\"Stepan\", \"Bondarenko\", 1], " +
+                "[\"Yaroslav\", \"Bulakh\", 1], " +
                 "[\"Kate\", \"Dilani\", 1], " +
                 "[\"Steave\", \"Jouce\", 1], " +
                 "[\"Julia\", \"Roberts\", 1]]";

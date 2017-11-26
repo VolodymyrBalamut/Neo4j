@@ -97,7 +97,7 @@ public class RequestToDB implements AutoCloseable{
     }
     public String getCountOfUsersGroups()
     {
-        return request("match (g:group)<-[:SUBSCRIBER]-(p:users) return p.firstName,p.lastName, count(g) order by count(g) desc");
+        return request("match (g:group)<-[:SUBSCRIBER]-(p:users) return p.firstName,p.lastName, count(g) order by count(g) desc, p.lastName");
     }
     public String getCountOfGroupsFriendsOfFriends(String name)
     {
