@@ -22,32 +22,6 @@ public class User {
     }
 
     @Override
-    public final int hashCode(){
-        int hash = 0;
-        hash += id;
-        hash += firstName.hashCode();
-        hash += lastName.hashCode();
-        hash += middleName.hashCode();
-        hash += gender.hashCode();
-        hash -= age;
-        return hash;
-    }
-    @Override
-    public final boolean equals(Object obj){
-        if (obj instanceof User)
-        {
-            if (obj == null)
-            {return false;}
-
-            if (this == obj)
-            {return true;}
-
-            if (this.hashCode() == obj.hashCode())
-            {return true;}
-        }
-        return false;
-    }
-    @Override
     public String toString() {
         return "[User: " + this.firstName + " " + this.middleName + " " + this.lastName + ", Age: " + this.age + "]";
     }

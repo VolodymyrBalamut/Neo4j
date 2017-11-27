@@ -9,9 +9,6 @@ import org.neo4j.driver.v1.StatementResult;
 import org.neo4j.driver.v1.Transaction;
 import org.neo4j.driver.v1.TransactionWork;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import static org.neo4j.driver.v1.Values.parameters;
 
