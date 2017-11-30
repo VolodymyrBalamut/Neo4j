@@ -1,0 +1,8 @@
+match (node:users)<-[:Knows]-(n) where node.lastName = "Tern" SET n:friendOfTern
+match (node:users)<-[:Knows]-(n)<-[:Knows]-(f) where node.lastName = "Tern" SET f:twoHandFriendsOfTern
+match (n:users)<-[:Knows]-(f) with  n as node, count(f) as counter where counter>=5 SET node:manyFriends
+match (n:users)<-[:Knows]-(f) with  n as node, count(f) as counter where counter<3 SET node:fewFriends
+match (node:group)<-[:SUBSCRIBER]-(n) where node.name = "Football" SET n:groupFootball
+match (node:group)<-[:SUBSCRIBER]-(n) where node.name = "IT" SET n:groupIT
+match (node:group)<-[:SUBSCRIBER]-(n) where node.name = "Music" SET n:groupMusic
+match (node::group)<-[:SUBSCRIBER]-(n) with count(node) as counter, n as n where counter>=3 Set n:groupAll 

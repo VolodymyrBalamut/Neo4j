@@ -31,13 +31,16 @@ public class RequestToDBTest {
             users.values().stream().forEach(user->socialNetwork.crateUser(user));
 
             //create friends relationships
-            socialNetwork.CreateRelationship(users.get("Smith"),users.get("Jouce"));
+            socialNetwork.CreateRelationship(users.get("Dilan1"),users.get("Jouce"));
             socialNetwork.CreateRelationship(users.get("Smith"),users.get("Bulakh"));
             socialNetwork.CreateRelationship(users.get("Bulakh"),users.get("Roberts"));
             socialNetwork.CreateRelationship(users.get("Nazarenko"),users.get("Dilan1"));
-            socialNetwork.CreateRelationship(users.get("Nazarenko"),users.get("Tern"));
             socialNetwork.CreateRelationship(users.get("Bondarenko"),users.get("Yakovenko"));
+            socialNetwork.CreateRelationship(users.get("Nazarenko"),users.get("Tern"));
             socialNetwork.CreateRelationship(users.get("Yakovenko"),users.get("Tern"));
+            socialNetwork.CreateRelationship(users.get("Dilan"),users.get("Tern"));
+            socialNetwork.CreateRelationship(users.get("Smith"),users.get("Tern"));
+            socialNetwork.CreateRelationship(users.get("Jouce"),users.get("Tern"));
 
             //create groups
             HashMap<String, Group> groups = new HashMap<>();
@@ -86,12 +89,14 @@ public class RequestToDBTest {
     }
     @Test
     public void getFriends() throws Exception {
-        String expected = "[[\"Bogdan\", \"Yakovenko\"], [\"Yaroslava\", \"Nazarenko\"]]";
+        String expected = "[[\"Bob\", \"Dilan\"], [\"Bogdan\", \"Yakovenko\"], " +
+                "[\"John\", \"Smith\"], [\"Steave\", \"Jouce\"], " +
+                "[\"Yaroslava\", \"Nazarenko\"]]";
         assertEquals(requestToDB.getFriends("Tern"), expected);
     }
     @Test
     public void getFriendsOfFriends() throws Exception {
-        String expected = "[[\"Stepan\", \"Bondarenko\"]]";
+        String expected = "[[\"Kate\", \"Dilani\"], [\"Stepan\", \"Bondarenko\"]]";
         assertEquals(requestToDB.getFriendsOfFriends("Tern"), expected);
     }
     @Test
@@ -99,7 +104,7 @@ public class RequestToDBTest {
         String expected = "[[\"Bogdan\", \"Yakovenko\", 1], " +
                 "[\"Julia\", \"Roberts\", 1], " +
                 "[\"Kate\", \"Dilani\", 1], " +
-                "[\"Rosa\", \"Tern\", 2], " +
+                "[\"Rosa\", \"Tern\", 5], " +
                 "[\"Steave\", \"Jouce\", 1], " +
                 "[\"Yaroslav\", \"Bulakh\", 1]]";
         assertEquals(requestToDB.getCountOfFriends(), expected);
@@ -133,7 +138,7 @@ public class RequestToDBTest {
     }
     @Test
     public void getCountOfGroupsFriendsOfFriends() throws Exception {
-        String expected = "[[1]]";
+        String expected = "[[2]]";
         assertEquals(requestToDB.getCountOfGroupsFriendsOfFriends("Tern"), expected);
     }
     @Test
@@ -162,7 +167,7 @@ public class RequestToDBTest {
     }
     @Test
     public void getPostsFriendsOfFriends() throws Exception {
-        String expected = "[[\"Bondarenko\", [\"ff\", \"gdd\"]]]";
+        String expected = "[[\"Dilani\", [\"ff\"]], [\"Bondarenko\", [\"ff\", \"gdd\"]]]";
         assertEquals(requestToDB.getPostsFriendsOfFriends("Tern"), expected);
     }
     @Test
